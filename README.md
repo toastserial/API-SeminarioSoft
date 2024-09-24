@@ -23,6 +23,10 @@
 - Inicializamos con un `nodemon src/app.js` para iniciar el servidor.
 - Seguido un `npm run dev` para iniciar el servidor.
 - Thunder Client: `GET http://localhost:3001/` para probar la conexión a la API.
+- Thunder Client: `GET http://localhost:3001/otra` para probar la conexión a la API.
+- Thunder Client: `GET http://localhost:3001/otra2` para probar la conexión a la API.
+- Router-rutas archivo para las rutas de la API.
+- AHora todas las apis tienen que empezar por la ruta '/api'.
 
 
 
