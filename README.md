@@ -1,2 +1,2 @@
 # API-SeminarioSoft
-1erParcial-API
+Inicializamos con un  npm init --y
