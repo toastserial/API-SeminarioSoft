@@ -1,2 +1,2 @@
 # API-SeminarioSoft
-Inicializamos con un  npm init --y
+Inicializamos con un  `npm init --y`
