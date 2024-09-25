@@ -18,7 +18,7 @@ const Cargo = db.define(
         },
         activo: {
             type: sequelize.BOOLEAN,
-            allowNull: false,
+            allowNull: true,
             defaultValue: true,
         }
     },

@@ -2,10 +2,13 @@ const express = require('express');
 const morgan = require('morgan');
 const db = require('./configuracion/db');
 const modeloCargo = require('./modelos/cargo');
+const modeloEmpleado = require('./modelos/empleado');
 
 db.authenticate()
 .then( async(data) => {
     console.log("Conexión establecida correctamente");
+    modeloCargo.hasMany(modeloEmpleado);
+    modeloEmpleado.belongsTo(modeloCargo);
     await modeloCargo.sync().then((da)=>{
         console.log("Modelo Cargo creado correctamente")
     })
