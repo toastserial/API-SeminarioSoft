@@ -1,16 +1,12 @@
 const sequelize = require('sequelize');
 const db = require('../configuracion/db');
 
-const Cargo = db.define(
-    "cargo",
+const Barrio = db.define(
+    "barrio",
     {
         nombre: {
             type: sequelize.STRING(50),
             allowNull: false,
-            unique: {
-                args: true,
-                msg: "Ya existe un cargo con este nombre",
-            }
         },
         descripcion: {
             type: sequelize.TEXT,
@@ -23,8 +19,8 @@ const Cargo = db.define(
         }
     },
     {
-        tableName: "cargos",
+        tableName: "barrios",
     }
 );
 
-module.exports = Cargo;
+module.exports = Barrio;

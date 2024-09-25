@@ -14,7 +14,13 @@ db.authenticate()
     })
     .catch((e)=>{
         console.log("Error al crear el modelo Cargo: " + e);
+    });
+    await modeloEmpleado.sync().then((da)=>{
+        console.log("Modelo Empleado creado correctamente")
     })
+    .catch((e)=>{
+        console.log("Error al crear el modelo Empleado: " + e);
+    });
 })
 .catch((er) => {
     console.log("Error de conexión: " + er);
