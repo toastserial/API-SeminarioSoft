@@ -23,6 +23,8 @@ rutas.get('/otra2', (req, res) => {
             nombre: "Seminario Taller de Software"
         }
     }
-    res.send({clase: info.clase.codigo + '  ' + info.clase.nombre});
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "application/json");
+    res.json({clase: info.clase.codigo + '  ' + info.clase.nombre});
 });
 module.exports = rutas;
