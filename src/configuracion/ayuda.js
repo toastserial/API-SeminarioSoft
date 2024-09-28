@@ -6,7 +6,7 @@ exports.enviar = (codigo, contenido, res) => {
 exports.errores = (er) => {
     ListaMsj=[];
     er.errors.forEach(element => {
-        ListaMsj.push({campo: element.path, msj: element.msj});
+        ListaMsj.push({campo: element.path, msj: element.msg});
     });
     return ListaMsj;
 };

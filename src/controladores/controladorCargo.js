@@ -31,3 +31,25 @@ exports.listar = async (req, res) => {
         enviar(500, contenido, res);
     }
 };
+
+exports.guardar = async (req, res) => {
+    const {nombre} = req.body;
+    var contenido = {
+        tipo: 0,
+        datos: [],
+        msj: [],
+    }
+    contenido.msj = errores(validationResult(req));
+    console.log(contenido.msj);
+    //contenido.msj = errores(validationResult(req));
+    try {
+        contenido.tipo=1;
+        contenido.datos="Hola Mundo";
+        enviar(200, contenido, res);
+
+    } catch (error) {
+        contenido.tipo=0;
+        contenido.msj="Error en el servidor";
+        enviar(500, contenido, res);
+    }
+};
