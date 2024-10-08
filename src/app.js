@@ -8,7 +8,7 @@ const modeloMunicipio = require('./modelos/ubicacion/municipio');
 const modeloCiudad = require('./modelos/ubicacion/ciudad');
 const modeloBarrio = require('./modelos/ubicacion/barrio');
 const modeloCliente = require('./modelos/clientes/cliente');
-const modeloClienteDireccion = require('./modelos/clientes/clienteDireccion');
+const modeloClienteDireccion = require('./modelos/clientes/clientedireccion');
 const modeloClienteTelefono = require('./modelos/clientes/clientetelefono');
 
 db.authenticate()
@@ -96,6 +96,14 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use('/api', require('./rutas'));
 app.use('/api/cargos', require('./rutas/rutaCargo'));
+app.use('/api/departamentos', require('./rutas/rutaDept'));
+app.use('/api/barrios', require('./rutas/rutaBarrio'));
+app.use('/api/ciudades', require('./rutas/rutaCiudad'));
+app.use('/api/municipios', require('./rutas/rutaMunicipio'));
+app.use('/api/clientes', require('./rutas/rutaCliente'));
+app.use('/api/empleados', require('./rutas/rutaEmpleado'));
+app.use('/api/telefonos', require('./rutas/rutaClienteTelefono'));
+app.use('/api/direccion', require('./rutas/rutaClienteDireccion'));
 app.listen(app.get('port'), ()=>{
     console.log('Servidor iniciado en el puerto ' + app.get('port'));
 });

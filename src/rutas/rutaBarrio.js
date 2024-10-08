@@ -1,41 +1,41 @@
 const { Router } = require('express');
 const {body, query} = require('express-validator');
-const controladorCargo = require('../controladores/controladorCargo');
-const ModeloCargo = require('../modelos/cargo');
+const controladorBarrio = require('../controladores/controladorBarrio');
+const ModeloBarrio = require('../modelos/ubicacion/barrio');
 const rutas = Router();
-rutas.get('/', controladorCargo.inicio);
-rutas.get('/listar', controladorCargo.listar);
+rutas.get('/', controladorBarrio.inicio);
+rutas.get('/listar', controladorBarrio.listar);
 rutas.post('/guardar',
     body("nombre").isLength({min: 3, max: 50}).withMessage('El nombre debe tener entre 3 y 50 caracteres')
     .custom(async value =>{
         if(!value){
             throw new Error('El nombre no permite valores nulos');
         }else{
-            const buscarCargo = await ModeloCargo.findOne({
+            const buscarBarrio = await ModeloBarrio.findOne({
                 where: {
                     nombre: value
                 }
             });
-            if(buscarCargo){
-                throw new Error('El nombre del cargo ya existe');
+            if(buscarBarrio){
+                throw new Error('El nombre del barrio ya existe');
             }
         }
     }),
     body("activo").optional().isBoolean().withMessage("Solo se permiten valores boleanos"),
-    controladorCargo.guardar);
+    controladorBarrio.guardar);
 rutas.put('/editar',
     query("id").isInt().withMessage("El id debe ser un entero.")
     .custom(async value =>{
         if(!value){
             throw new Error('El nombre no permite valores nulos');
         }else{
-            const buscarCargo = await ModeloCargo.findOne({
+            const buscarBarrio = await ModeloBarrio.findOne({
                     where: {
                         id: value
                     }
                 });
-                if(buscarCargo){
-                    throw new Error('El id del cargo no existe');
+                if(buscarBarrio){
+                    throw new Error('El id del barrio no existe');
                 }
             }
         }),
@@ -44,33 +44,33 @@ rutas.put('/editar',
         if(!value){
             throw new Error('El nombre no permite valores nulos');
         }else{
-            const buscarCargo = await ModeloCargo.findOne({
+            const buscarBarrio = await ModeloBarrio.findOne({
                     where: {
                         nombre: value
                     }
                 });
-                if(buscarCargo){
-                    throw new Error('El nombre del cargo ya existe');
+                if(buscarBarrio){
+                    throw new Error('El nombre del barrio ya existe');
                 }
             }
         }),
         body("activo").optional().isBoolean().withMessage("Solo se permiten valores boleanos"),
-        controladorCargo.guardar);
+        controladorBarrio.guardar);
 rutas.delete('/eliminar',
     query("id").isInt().withMessage("El id debe ser un entero")
         .custom(async value => {
             if (!value) {
                 throw new Error('El nombre no permite valores nulos');
             } else {
-                const buscarCargo = await ModeloCargo.findOne({
+                const buscarBarrio = await ModeloBarrio.findOne({
                     where: {
                         id: value
                     }
                 });
-                if (!buscarCargo) {
-                    throw new Error('El id del cargo no existe');
+                if (!buscarBarrio) {
+                    throw new Error('El id del barrio no existe');
                 }
             }
         }),
-    controladorCargo.eliminar);
+    controladorBarrio.eliminar);
 module.exports = rutas;

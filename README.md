@@ -18,6 +18,8 @@
 - Seguido un `npm install mysql2`.
 - Seguido un `npm install bcrypt`.
 - Luego un `npm install nodemon -D`.
+- `npm install express-validator`.
+- `npm install moment`.
 
 ### Inicialización
 - Inicializamos con un `nodemon src/app.js` para iniciar el servidor.

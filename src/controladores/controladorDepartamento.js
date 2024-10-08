@@ -1,4 +1,4 @@
-const ModeloCargo = require('../modelos/cargo');
+const ModeloCargo = require('../modelos/ubicacion/departamento');
 const { enviar, errores } = require('../configuracion/ayuda');
 const { validationResult } = require('express-validator');
 const { where } = require('sequelize');
